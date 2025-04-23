@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TechRes | Book an Appointment</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="logo">
+      <img src="../assets/logo.png" alt="TechRes Logo" />
+    </div>
+    <nav class="navbar">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../pages/services.html">Services</a></li>
+        <li><a href="../pages/gallery.html">Gallery</a></li>
+        <li><a href="../pages/appointment.html" class="active">Appointment</a></li>
+        <li><a href="../pages/contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="appointment-section">
+    <h2 class="section-title">Book an Appointment</h2>
+
+    <form class="appointment-form" id="appointmentForm">
+      <!-- Name Field -->
+      <div class="form-group animated-input">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required placeholder="Enter your name" />
+      </div>
+      <!-- Service Dropdown -->
+      <div class="form-group animated-input">
+        <label for="service">What do you need help with?</label>
+        <select id="service" name="service" required>
+          <option value="">-- Choose a service --</option>
+          <option value="phone">📱 Phone Repair</option>
+          <option value="pc-build">🖥️ Custom PC Build</option>
+          <option value="video-edit">🎬 Video Editing</option>
+          <option value="controller">🎮 Controller Fix</option>
+          <option value="laptop">💻 Laptop Repair</option>
+          <option value="diagnostic">🧠 PC Diagnostics</option>
+          <option value="other">🛠️ Other</option>
+        </select>
+      </div>
+      <!-- Common Issue Dropdown (Dynamic) -->
+      <div class="form-group animated-input" id="issue-group" style="display: none;">
+        <label for="issue">Common Issues</label>
+        <select id="issue" name="issue">
+          <option value="">-- Select an issue --</option>
+        </select>
+      </div>
+      <!-- Email Field -->
+      <div class="form-group animated-input">
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required />
+      </div>
+      <!-- Date Picker -->
+      <div class="form-group animated-input">
+        <label for="date">Preferred Date</label>
+        <input type="date" id="date" name="date" required />
+      </div>
+      <!-- Notes -->
+      <div class="form-group animated-input">
+        <label for="notes">Anything you'd like us to know?</label>
+        <textarea id="notes" name="notes" rows="4" placeholder="Describe the issue, request specifics, etc."></textarea>
+      </div>
+      <!-- Submit Button -->
+      <button type="submit" class="submit-btn">Book Now</button>
+    </form>
+    
+    
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 TechRes. All rights reserved.</p>
+  </footer>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const serviceSelect = document.getElementById('service');
+      const issueGroup = document.getElementById('issue-group');
+      const issueSelect = document.getElementById('issue');
+  
+      const issueOptions = {
+        phone: ['Cracked Screen', 'Battery Issue', 'Charging Port', 'Other'],
+        'pc-build': ['Budget Build', 'High-Performance Build', 'Other'],
+        'video-edit': ['Social Media Clip', 'YouTube Edit', 'Promo Video', 'Other'],
+        controller: ['Stick Drift', 'Button Not Responding', 'Connectivity Issue', 'Other'],
+        laptop: ['Slow Performance', 'Broken Screen', 'Keyboard Issues', 'Other'],
+        diagnostic: ['Boot Issues', 'No Display', 'Performance Lag', 'Other']
+      };
+  
+      serviceSelect.addEventListener('change', function () {
+        const selected = this.value;
+  
+        if (issueOptions[selected]) {
+          issueSelect.innerHTML = issueOptions[selected]
+            .map(issue => `<option value="${issue}">${issue}</option>`)
+            .join('');
+          issueGroup.style.display = 'block';
+        } else {
+          issueGroup.style.display = 'none';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
