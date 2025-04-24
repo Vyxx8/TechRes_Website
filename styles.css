@@ -1025,3 +1025,141 @@ footer {
   text-align: center;
   font-weight: bold;
 }
+
+body {
+  background-color: #0d0d0d;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #1a1a1a;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #333;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo img {
+  height: 45px;
+}
+
+.site-title {
+  font-size: 2rem;
+  color: #ff3b75;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+}
+
+nav a.active,
+nav a:hover {
+  color: #ff3b75;
+}
+
+.gallery-section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: #ff3b75;
+  margin-bottom: 1rem;
+}
+
+.gallery-intro {
+  font-size: 1.1rem;
+  color: #ccc;
+  margin-bottom: 2.5rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+.gallery-item {
+  background: #1f1f1f;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(255, 0, 100, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.03);
+}
+
+.gallery-item img,
+.gallery-item iframe {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-bottom: 1px solid #333;
+}
+
+.gallery-item.video iframe {
+  height: 220px;
+}
+
+.caption {
+  padding: 1rem;
+  text-align: left;
+}
+
+.caption h3 {
+  color: #ff3b75;
+  margin-bottom: 0.5rem;
+}
+
+.caption p {
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+}
+
+.fade-in:nth-child(1) { animation-delay: 0s; }
+.fade-in:nth-child(2) { animation-delay: 0.15s; }
+.fade-in:nth-child(3) { animation-delay: 0.3s; }
+.fade-in:nth-child(4) { animation-delay: 0.45s; }
+.fade-in:nth-child(5) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+footer {
+  padding: 2rem;
+  background: #000;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+}
