@@ -1,4 +1,56 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("appointmentForm");
+
+  if (!form) {
+    console.error("❌ Form not found!");
+    return;
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const templateParams = {
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      phone: document.getElementById("phone").value,
+      service: document.getElementById("service").value,
+      issue: document.getElementById("issue").value,
+      extraIssue: document.getElementById("extraIssue").value || "N/A",
+      date: new Date(document.getElementById("date").value).toLocaleDateString("en-US", {
+        year: 'numeric', month: 'long', day: 'numeric'
+      }),
+      notes: document.getElementById("notes").value || "N/A",
+      price: document.getElementById("priceEstimate").textContent.replace("$", "")
+    };
+
+    console.log("Sending with params:", templateParams);
+
+    emailjs.send("service_878a2lc", "template_on2huzm", templateParams, "L41mscJDBt8AusYyY")
+  .then(function () {
+    const toast = document.getElementById("success-toast");
+    toast.classList.add("show");
+    setTimeout(() => toast.classList.remove("show"), 3000);
+
+    form.reset();
+    document.getElementById("priceEstimate").textContent = "$0";
+  }, function (error) {
+    const errorToast = document.getElementById("error-toast");
+    errorToast.classList.add("show");
+    setTimeout(() => errorToast.classList.remove("show"), 3000);
+
+    console.error("❌ EmailJS Error:", error);
+  });
+  });
+});
+
+function getNextOrderNumber() {
+  let current = localStorage.getItem("techres_order_number") || 1;
+  let orderNumber = `TR-${String(current).padStart(2, '0')}`;
+  localStorage.setItem("techres_order_number", Number(current) + 1);
+  return orderNumber;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
   const emojiContainer = document.getElementById("emojiContainer");
   const emojis = ["🔧", "🛠️", "⚙️"];
   const count = 10;
