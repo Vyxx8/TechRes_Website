@@ -22,6 +22,7 @@
             <li><a href="pages/gallery.html">Gallery</a></li>
             <li><a href="pages/appointment.html">Appointment</a></li>
             <li><a href="pages/contact.html">Contact</a></li>
+            <li><a href="pages/how-it-works.html">How It Works</a></li>
           </ul>
         </nav>
       </header>  
@@ -42,12 +43,70 @@
         <span class="floating-emoji">⚙️</span>
       </div>
                       
+      <p style="text-align:center; margin-top: 2rem;">
+        <a href="pages/how-it-works.html" class="cta-button small">📘 See How It Works</a>
+      </p>    
 
-  <section class="hero">
-    <h1>Welcome to TechRes</h1>
-    <p>Your one-stop tech shop for repairs, builds, and clean edits.</p>
-    <a href="pages/appointment.html" class="cta-button">Book Now</a>
-  </section> 
+      <section class="hero">
+        <h1>Welcome to TechRes</h1>
+        <p>Your one-stop tech shop for repairs, builds, and clean edits.</p>
+        <a href="pages/appointment.html" class="cta-button">Book Now</a>
+      </section> 
+
+      <section class="why-choose-us">
+        <h2>Why Choose Us?</h2>
+        <div class="card">
+          <h3>🛠️ Expert Repairs</h3>
+          <p>From phones to gaming rigs, we fix it all with precision and care.</p>
+        </div>
+        <div class="card">
+          <h3>⚡ Fast Turnaround</h3>
+          <p>No long waits. We get your tech back to you quickly and smoothly.</p>
+        </div>
+        <div class="card">
+          <h3>📍 Local & Reliable</h3>
+          <p>We're a local business that treats every device like it's our own.</p>
+        </div>
+        <div class="card">
+          <h3>💬 Transparent Communication</h3>
+          <p>You’ll always know what’s going on — no surprises, just updates.</p>
+        </div>
+      </section>
+            
+
+      <script>
+        const textList = ["Fast Repairs", "Custom PC Builds", "Device Diagnostics", "Video Edits"];
+        const typeEl = document.getElementById("typewriter-text");
+        
+        let index = 0;
+        function typeText() {
+          const text = textList[index];
+          typeEl.textContent = "";
+          let char = 0;
+        
+          // Randomize position
+          const top = Math.floor(Math.random() * 70) + 10;
+          const left = Math.floor(Math.random() * 60) + 20;
+          typeEl.style.top = `${top}%`;
+          typeEl.style.left = `${left}%`;
+        
+          function typeChar() {
+            if (char < text.length) {
+              typeEl.textContent += text.charAt(char);
+              char++;
+              setTimeout(typeChar, 100);
+            } else {
+              setTimeout(() => {
+                index = (index + 1) % textList.length;
+                typeText();
+              }, 2000);
+            }
+          }
+          typeChar();
+        }
+        
+        typeText();
+        </script>        
 
   <section class="features">
     <div class="feature">

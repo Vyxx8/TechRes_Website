@@ -2,35 +2,82 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TechRes | Contact</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | TechRes</title>
   <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="../contact.css" />
+  
 </head>
 <body>
-  <header class="site-header">
+
+  <header>
     <div class="logo">
       <img src="../assets/logo.png" alt="TechRes Logo" />
     </div>
-    <nav class="navbar">
+    <h1 class="site-title">TechRes</h1>
+    <nav>
       <ul>
         <li><a href="../index.html">Home</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="appointment.html">Appointment</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="how-it-works.html" class="active">How It Works</a></li>
       </ul>
     </nav>
   </header>
 
   <main class="contact-section">
-    <h1 class="section-title">Get in Touch</h1>
-    <p>We’d love to hear from you!</p>
-    <p>Email: <a href="mailto:contact@techres.com">contact@techres.com</a></p>
-    <p>Instagram: <a href="https://instagram.com/techres" target="_blank">@techres</a></p>
+    <h2 class="section-title">Get in Touch</h2>
+
+    <div class="contact-section">
+      <form action="https://formspree.io/f/xkgrnkdn" method="POST" class="contact-form" id="contactForm" onsubmit="showMessage(event)">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="thanks.html">
+    
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" required placeholder="Enter your name"/>
+        </div>
+    
+        <div class="form-group">
+          <label for="email">Your Email</label>
+          <input type="email" id="email" name="email" required placeholder="Enter your email"/>
+        </div>
+    
+        <div class="form-group">
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message" rows="5" required placeholder="Type your message..."></textarea>
+        </div>
+    
+        <button type="submit" class="submit-btn">Send Message</button>
+    
+        <div id="formMessage" class="form-message" style="display: none;">✅ Message Sent Successfully!</div>
+      </form>
+    </div>
+    
+    <script>
+      function showMessage(event) {
+        const form = document.getElementById("contactForm");
+        const messageBox = document.getElementById("formMessage");
+    
+        // Show confirmation
+        messageBox.style.display = "block";
+        
+        // Let FormSubmit continue the redirect
+        setTimeout(() => form.submit(), 1000);
+    
+        // Optional: hide the form temporarily
+        // form.style.display = "none";
+      }
+    </script>
+    
+
   </main>
 
   <footer class="footer">
     <p>&copy; 2025 TechRes. All rights reserved.</p>
   </footer>
+
 </body>
 </html>

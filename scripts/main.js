@@ -43,11 +43,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-function getNextOrderNumber() {
-  let current = localStorage.getItem("techres_order_number") || 1;
-  let orderNumber = `TR-${String(current).padStart(2, '0')}`;
-  localStorage.setItem("techres_order_number", Number(current) + 1);
-  return orderNumber;
+// Generate a pseudo order number like TR-20250423-839
+function generateOrderNumber() {
+  const now = new Date();
+  const datePart = now.toISOString().split("T")[0].replace(/-/g, '');
+  const randomPart = Math.floor(100 + Math.random() * 900); // Random 3-digitz
+  return `TR-${datePart}-${randomPart}`;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -159,3 +160,9 @@ setInterval(() => {
 }, 10000);
 
 showTestimonial(testimonialIndex);
+
+const templateParams = {
+  name: document.getElementById("name").value,
+  email: document.getElementById("email").value, // This is crucial
+  message: document.getElementById("message").value,
+};
