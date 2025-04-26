@@ -1323,6 +1323,7 @@ footer {
   color: #777;
 }
 
+/* Hide hamburger and mobile menu by default */
 .hamburger {
   display: none;
   background: none;
@@ -1362,27 +1363,39 @@ footer {
   font-size: 1.2rem;
 }
 
+/* MOBILE ONLY */
 @media (max-width: 768px) {
-  .site-header {
-    top: -100px;
-    transition: top 0.4s ease;
-  }
-  .site-header.show {
-    top: 0;
-  }
-}
-
-@media (max-width: 768px) {
-  .desktop-nav {
+  /* Hide entire header (logo + title + nav) */
+  .site-header > .logo,
+  .site-header > .site-title,
+  .site-header > .desktop-nav {
     display: none;
   }
 
   .hamburger {
-    display: block;
+    display: block; /* Show hamburger */
+    position: fixed;
+    top: 10px;
+    right: 10px;
   }
 }
 
+/* When active, show the logo, title, and nav again */
+@media (max-width: 768px) {
+  .site-header.show > .logo,
+  .site-header.show > .site-title,
+  .site-header.show > .desktop-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 
-.mobile-menu.show {
-  display: block;
+  .site-header.show > .desktop-nav ul {
+    flex-direction: column;
+  }
+
+  .mobile-menu.show {
+    display: block;
+  }
 }
