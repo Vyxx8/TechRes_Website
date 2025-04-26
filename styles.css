@@ -1,3 +1,4 @@
+/* ======= IMPROVED MOBILE RESPONSIVENESS ======= */
 @media (max-width: 768px) {
   header {
     flex-direction: column;
@@ -103,33 +104,84 @@ body {
 }
 
 /* HEADER */
-header {
-  background-color: rgba(0, 0, 0, 0.9);
-  padding: 1.2rem 2rem;
+.site-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #3a3a3a;
-  position: relative;
+  z-index: 999;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.logo img {
-  height: 45px;
+.site-header .logo {
+  flex: 1;
+  display: flex;
+  align-items: center;
 }
 
-.site-title {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 2rem;
+.site-header .logo img {
+  height: 40px;
+  width: auto;
+}
+
+.site-header .site-title {
+  flex: 1;
+  text-align: center;
+  font-size: 1.5rem;
   font-weight: bold;
   background: linear-gradient(90deg, #ff0033, #8000ff, #ffffff);
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-align: center;
-  z-index: 1;
-  pointer-events: none;
-  text-shadow: 0 0 10px rgba(255, 0, 100, 0.3);
+  text-shadow: 0 0 6px rgba(255, 0, 100, 0.3);
+}
+
+.site-header nav {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+  transition: all 0.3s ease;
+}
+
+.site-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ff0033, #8000ff, #ffffff);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 6px rgba(255, 0, 100, 0.3);
 }
 
 nav ul {
