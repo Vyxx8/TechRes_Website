@@ -124,11 +124,17 @@ body {
   .site-header {
     padding: 0.4rem 1rem;
   }
+  
   .site-header .site-title {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
+  
   .site-header .logo img {
-    height: 30px;
+    height: 28px; 
+  }
+
+  nav ul {
+    gap: 1rem;
   }
 }
 
