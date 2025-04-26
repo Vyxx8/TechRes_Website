@@ -27,7 +27,7 @@
         </nav>
       </header> 
 
-      <button id="toggle-header">&#9660;</button>
+      <button id="toggle-header" style="display: none;">&#9660;</button>
                       
       <p style="text-align:center; margin-top: 2rem;">
         <a href="pages/how-it-works.html" class="cta-button small">📘 See How It Works</a>
@@ -97,16 +97,30 @@
           const toggleButton = document.getElementById('toggle-header');
           const siteHeader = document.querySelector('.site-header');
           
+          function checkMobile() {
+            if (window.innerWidth <= 768) {
+              toggleButton.style.display = 'block'; 
+              siteHeader.classList.remove('show'); 
+            } else {
+              toggleButton.style.display = 'none'; 
+              siteHeader.classList.add('show'); 
+            }
+          }
+
+          checkMobile();
+          
+          window.addEventListener('resize', checkMobile);
+          
           toggleButton.addEventListener('click', () => {
             siteHeader.classList.toggle('show');
           
             if (siteHeader.classList.contains('show')) {
-              toggleButton.innerHTML = '&#9650;'; 
+              toggleButton.innerHTML = '&#9650;'; // ▲ Up arrow
             } else {
-              toggleButton.innerHTML = '&#9660;';
+              toggleButton.innerHTML = '&#9660;'; // ▼ Down arrow
             }
           });
-          </script>                    
+          </script>                              
                             
 
   <section class="features">
