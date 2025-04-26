@@ -143,3 +143,9 @@ window.addEventListener('scroll', () => {
     header.style.top = '-100px';
   }
 });
+
+if (window.scrollY === 0) {
+  header.style.top = '0';
+} else {
+  header.style.top = '-100px';
+}
