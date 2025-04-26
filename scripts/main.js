@@ -167,7 +167,6 @@ const templateParams = {
   message: document.getElementById("message").value,
 };
 
-// Auto-hide header on scroll
 let lastScrollTop = 0;
 const header = document.querySelector('header');
 
