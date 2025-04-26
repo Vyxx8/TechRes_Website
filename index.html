@@ -92,35 +92,21 @@
         </script>   
         
         <script>
-          const toggleButton = document.getElementById('toggle-header');
-          const siteHeader = document.querySelector('.site-header');
+          const header = document.querySelector('.site-header');
+          let lastScrollY = window.scrollY;
           
-          let headerOpen = false;
-  
-          function checkScreenSize() {
-            if (window.innerWidth <= 768) {
-              toggleButton.style.display = 'block';
-          
-              toggleButton.addEventListener('click', () => {
-                headerOpen = !headerOpen;
-          
-                if (headerOpen) {
-                  siteHeader.classList.add('open');
-                  toggleButton.innerHTML = '&#9650;'; // ▲
-                } else {
-                  siteHeader.classList.remove('open');
-                  toggleButton.innerHTML = '&#9660;'; // ▼
-                }
-              });
+          window.addEventListener('scroll', () => {
+            if (window.scrollY > lastScrollY && window.scrollY > 50) {
+
+              header.style.top = '-80px';
             } else {
-              toggleButton.style.display = 'none';
-              siteHeader.classList.remove('open');
+
+              header.style.top = '0';
             }
-          }
-          
-          window.addEventListener('resize', checkScreenSize);
-          window.addEventListener('load', checkScreenSize);
-          </script>                  
+            lastScrollY = window.scrollY;
+          });
+          </script>
+                            
 
   <section class="features">
     <div class="feature">
