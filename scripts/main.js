@@ -130,9 +130,16 @@ showTestimonial(testimonialIndex);
 
 const templateParams = {
   name: document.getElementById("name").value,
-  email: document.getElementById("email").value, // This is crucial
+  email: document.getElementById("email").value,
   message: document.getElementById("message").value,
 };
 
-let lastScrollTop = 0;
-const header = document.querySelector('header');
+const header = document.querySelector('.site-header');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY === 0) {
+    header.style.top = '0';
+  } else {
+    header.style.top = '-100px';
+  }
+});
