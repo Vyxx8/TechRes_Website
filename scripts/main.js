@@ -136,19 +136,3 @@ const templateParams = {
 
 let lastScrollTop = 0;
 const header = document.querySelector('header');
-
-window.addEventListener('scroll', function () {
-  const scrollTop = window.scrollY || document.documentElement.scrollTop;
-
-  if (scrollTop > lastScrollTop) {
-    // Scrolling down
-    header.classList.add('hide-header');
-    header.classList.remove('show-header');
-  } else {
-    // Scrolling up
-    header.classList.add('show-header');
-    header.classList.remove('hide-header');
-  }
-
-  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-});
