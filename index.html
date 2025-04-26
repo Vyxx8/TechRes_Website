@@ -15,7 +15,7 @@
       
         <h1 class="site-title">TechRes</h1>
       
-        <nav>
+        <nav class="desktop-nav">
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="pages/services.html">Services</a></li>
@@ -25,11 +25,22 @@
             <li><a href="pages/how-it-works.html">How It Works</a></li>
           </ul>
         </nav>
-      </header> 
+      </header>
+      
+      <div class="mobile-menu" id="mobile-menu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="pages/services.html">Services</a></li>
+          <li><a href="pages/gallery.html">Gallery</a></li>
+          <li><a href="pages/appointment.html">Appointment</a></li>
+          <li><a href="pages/contact.html">Contact</a></li>
+          <li><a href="pages/how-it-works.html">How It Works</a></li>
+        </ul>
+      </div>
 
-      <button id="toggle-header" style="display: none;">&#9660;</button>
+      <button class="hamburger" id="hamburger-button">&#9776;</button>
                       
-      <p style="text-align:center; margin-top: 2rem;">
+      <p style="text-align:center; margin-top: 5rem;">
         <a href="pages/how-it-works.html" class="cta-button small">📘 See How It Works</a>
       </p>    
 
@@ -94,33 +105,14 @@
         </script>   
         
         <script>
-          const toggleButton = document.getElementById('toggle-header');
-          const siteHeader = document.querySelector('.site-header');
-          
-          function checkMobile() {
-            if (window.innerWidth <= 768) {
-              toggleButton.style.display = 'block'; 
-              siteHeader.classList.remove('show'); 
-            } else {
-              toggleButton.style.display = 'none'; 
-              siteHeader.classList.add('show'); 
-            }
-          }
+const hamburgerButton = document.getElementById('hamburger-button');
+const mobileMenu = document.getElementById('mobile-menu');
 
-          checkMobile();
-          
-          window.addEventListener('resize', checkMobile);
-          
-          toggleButton.addEventListener('click', () => {
-            siteHeader.classList.toggle('show');
-          
-            if (siteHeader.classList.contains('show')) {
-              toggleButton.innerHTML = '&#9650;'; // ▲ Up arrow
-            } else {
-              toggleButton.innerHTML = '&#9660;'; // ▼ Down arrow
-            }
-          });
-          </script>                              
+hamburgerButton.addEventListener('click', () => {
+  mobileMenu.classList.toggle('show');
+});
+</script>
+                              
                             
 
   <section class="features">
