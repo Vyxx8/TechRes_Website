@@ -1363,6 +1363,16 @@ footer {
 }
 
 @media (max-width: 768px) {
+  .site-header {
+    top: -100px;
+    transition: top 0.4s ease;
+  }
+  .site-header.show {
+    top: 0;
+  }
+}
+
+@media (max-width: 768px) {
   .desktop-nav {
     display: none;
   }
