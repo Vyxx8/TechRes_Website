@@ -26,6 +26,8 @@
           </ul>
         </nav>
       </header> 
+
+      <button id="toggle-header">&#9660;</button>
                       
       <p style="text-align:center; margin-top: 2rem;">
         <a href="pages/how-it-works.html" class="cta-button small">📘 See How It Works</a>
@@ -92,20 +94,19 @@
         </script>   
         
         <script>
-          const header = document.querySelector('.site-header');
-          let lastScrollY = window.scrollY;
+          const toggleButton = document.getElementById('toggle-header');
+          const siteHeader = document.querySelector('.site-header');
           
-          window.addEventListener('scroll', () => {
-            if (window.scrollY > lastScrollY && window.scrollY > 50) {
-
-              header.style.top = '-100px'; 
+          toggleButton.addEventListener('click', () => {
+            siteHeader.classList.toggle('show');
+          
+            if (siteHeader.classList.contains('show')) {
+              toggleButton.innerHTML = '&#9650;'; 
             } else {
-
-              header.style.top = '0';
+              toggleButton.innerHTML = '&#9660;';
             }
-            lastScrollY = window.scrollY;
           });
-          </script>          
+          </script>                    
                             
 
   <section class="features">
