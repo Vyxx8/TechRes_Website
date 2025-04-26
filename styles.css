@@ -108,26 +108,25 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.9);
-  padding: 0.8rem 1.2rem;
+  background: rgba(0, 0, 0, 0.95);
+  padding: 1rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 999;
-  transition: top 0.3s;
+  z-index: 9999;
+  transition: top 0.4s ease;
+}
+
+main, section, .content, .hero {
+  margin-top: 100px;
 }
 
 @media (max-width: 768px) {
   .site-header {
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1rem;
   }
-
   .site-header .site-title {
     font-size: 1.2rem;
-  }
-
-  nav ul li a {
-    font-size: 0.95rem;
   }
 }
 
