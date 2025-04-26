@@ -8,29 +8,14 @@
 </head>
 <body>
 
-  <header class="site-header" id="site-header">
-    <div class="header-content">
-      <div class="logo">
-        <img src="assets/logo.png" alt="TechRes Logo" />
-      </div>
-  
-      <h1 class="site-title">TechRes</h1>
-  
-      <nav class="desktop-nav">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="pages/services.html">Services</a></li>
-          <li><a href="pages/gallery.html">Gallery</a></li>
-          <li><a href="pages/appointment.html">Appointment</a></li>
-          <li><a href="pages/contact.html">Contact</a></li>
-          <li><a href="pages/how-it-works.html">How It Works</a></li>
-        </ul>
-      </nav>
+  <header class="site-header">
+    <div class="logo">
+      <img src="assets/logo.png" alt="TechRes Logo" />
     </div>
   
-    <button class="hamburger" id="hamburger-button">&#9776;</button>
+    <h1 class="site-title">TechRes</h1>
   
-    <div class="mobile-menu" id="mobile-menu">
+    <nav class="desktop-nav">
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="pages/services.html">Services</a></li>
@@ -39,9 +24,11 @@
         <li><a href="pages/contact.html">Contact</a></li>
         <li><a href="pages/how-it-works.html">How It Works</a></li>
       </ul>
-    </div>
+    </nav>
+
+    <a href="index.html" class="floating-home-btn">Home</a>
+
   </header>
-  
 
       <button class="hamburger" id="hamburger-button">&#9776;</button>
                       
@@ -111,14 +98,14 @@
         
         <script>
           const hamburgerButton = document.getElementById('hamburger-button');
-          const siteHeader = document.getElementById('site-header');
+          const siteHeader = document.querySelector('.site-header');
           const mobileMenu = document.getElementById('mobile-menu');
           
           hamburgerButton.addEventListener('click', () => {
             siteHeader.classList.toggle('show');
             mobileMenu.classList.toggle('show');
           });
-          </script>                                                                              
+          </script>                                                                       
 
   <section class="features">
     <div class="feature">
