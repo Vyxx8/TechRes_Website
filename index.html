@@ -108,9 +108,11 @@
         
         <script>
           const hamburgerButton = document.getElementById('hamburger-button');
+          const siteHeader = document.querySelector('.site-header');
           const mobileMenu = document.getElementById('mobile-menu');
           
           hamburgerButton.addEventListener('click', () => {
+            siteHeader.classList.toggle('show');
             mobileMenu.classList.toggle('show');
           });
           </script>                                                     
