@@ -52,39 +52,6 @@ function generateOrderNumber() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const emojiContainer = document.getElementById("emojiContainer");
-  const emojis = ["🔧", "🛠️", "⚙️"];
-  const count = 10;
-
-  for (let i = 0; i < count; i++) {
-    const emoji = document.createElement("span");
-    emoji.className = "floating-emoji";
-    emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-
-    const top = Math.random() * 90;
-    const left = Math.random() * 90;
-
-    const distanceX = (Math.random() * 600 - 300);
-    const distanceY = (Math.random() * 600 - 300);
-
-    const duration = 12 + Math.random() * 8;
-    const delay = Math.random() * 5;
-    const size = 1.4 + Math.random() * 1.2;
-
-    emoji.style.top = `${top}%`;
-    emoji.style.left = `${left}%`;
-    emoji.style.fontSize = `${size}rem`;
-    emoji.style.animationDuration = `${duration}s`;
-    emoji.style.animationDelay = `${delay}s`;
-
-    emoji.style.setProperty('--x', `${distanceX}px`);
-    emoji.style.setProperty('--y', `${distanceY}px`);
-
-    emojiContainer.appendChild(emoji);
-  }
-});
-
-document.addEventListener("DOMContentLoaded", () => {
   const glow = document.getElementById("cursor-glow");
 
   let mouseX = 0;
