@@ -1329,10 +1329,10 @@ footer {
 }
 
 .floating-home-btn {
-  display: none;
+  display: none; /* hidden by default */
 }
 
-/* Mobile only */
+/* Show it only on mobile */
 @media (max-width: 768px) {
   .floating-home-btn {
     display: block;
