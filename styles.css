@@ -1323,7 +1323,6 @@ footer {
   color: #777;
 }
 
-/* HAMBURGER BUTTON */
 .hamburger {
   display: none;
   background: none;
@@ -1334,11 +1333,10 @@ footer {
   z-index: 10001;
 }
 
-/* MOBILE MENU */
 .mobile-menu {
   display: none;
   position: absolute;
-  top: 70px; /* below the header */
+  top: 70px;
   right: 0;
   width: 100%;
   background: rgba(10, 10, 10, 0.95);
@@ -1364,7 +1362,6 @@ footer {
   font-size: 1.2rem;
 }
 
-/* RESPONSIVE - MOBILE */
 @media (max-width: 768px) {
   .desktop-nav {
     display: none;
@@ -1374,6 +1371,7 @@ footer {
     display: block;
   }
 }
+
 
 .mobile-menu.show {
   display: block;
