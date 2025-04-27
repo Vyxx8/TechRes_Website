@@ -43,11 +43,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Generate a pseudo order number like TR-20250423-839
 function generateOrderNumber() {
   const now = new Date();
   const datePart = now.toISOString().split("T")[0].replace(/-/g, '');
-  const randomPart = Math.floor(100 + Math.random() * 900); // Random 3-digitz
+  const randomPart = Math.floor(100 + Math.random() * 900);
   return `TR-${datePart}-${randomPart}`;
 }
 

@@ -24,13 +24,16 @@
         <li><a href="how-it-works.html" class="active">How It Works</a></li>
       </ul>
     </nav>
-
-    <div class="see-work-button">
-      <a href="../pages/gallery.html">📸 Wanna see some of my work?</a>
-      <a href="index.html" class="floating-home-btn">Home</a>
-    </div>
     
   </header>
+
+  <div class="mobile-nav-buttons">
+    <a href="index.html" class="nav-btn">Home</a>
+    <a href="pages/services.html" class="nav-btn">Services</a>
+    <a href="pages/gallery.html" class="nav-btn">Gallery</a>
+    <a href="pages/contact.html" class="nav-btn">Contact</a>
+    <a href="pages/appointment.html" class="nav-btn">Appointment</a>
+  </div>
 
   <main class="services-section">
     <h2 class="section-title">💼 TechRes Services</h2>
@@ -142,17 +145,17 @@
       const allCards = document.querySelectorAll('.service-column');
     
       allCards.forEach((card, i) => {
-        card.style.setProperty('--i', i); // fade-in animation timing
+        card.style.setProperty('--i', i);
     
         const toggleBtn = card.querySelector('.toggle-btn');
     
         toggleBtn.addEventListener('click', () => {
           const isOpen = card.classList.contains('open');
     
-          // Close all cards
+        
           allCards.forEach(c => c.classList.remove('open'));
     
-          // If it wasn't already open, open this one
+        
           if (!isOpen) {
             card.classList.add('open');
           }
@@ -181,8 +184,8 @@
       </div>
   
       <div class="testimonial">
-        <p>“Fixed the stick drift that i've been having for months, ever since haven't had the issue again, W mans”</p>
-        <span>— Mubs, Controller Fix</span>
+        <p>“My video came out looking 🔥. The timing was perfect.”</p>
+        <span>— Talia, Video Edit</span>
       </div>
   
       <div class="testimonial">
@@ -214,7 +217,7 @@
     setInterval(() => {
   currentIndex = (currentIndex + 1) % testimonials.length;
   showTestimonial(currentIndex);
-}, 7500);
+}, 9000);
 
     dots.forEach((dot, index) => {
       dot.addEventListener("click", () => {
