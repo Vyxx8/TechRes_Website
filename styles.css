@@ -1326,7 +1326,7 @@ footer {
   display: none;
 }
 
-/* Mobile Only */
+/* MOBILE ONLY */
 @media (max-width: 768px) {
   .site-header {
     display: none;
@@ -1336,31 +1336,30 @@ footer {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 25px;
     position: fixed;
-    top: 15px;
+    top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(10, 10, 10, 0.9);
-    padding: 0.7rem 1.2rem;
+    background: rgba(15, 15, 15, 0.95);
+    padding: 0.8rem 2rem;
     border-radius: 50px;
-    box-shadow: 0 0 10px rgba(255, 0, 100, 0.4);
-    backdrop-filter: blur(10px);
+    box-shadow: 0 0 12px rgba(255, 0, 100, 0.4); 
+    backdrop-filter: blur(8px);
     z-index: 10000;
   }
 
   .nav-btn {
     color: white;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: bold;
     background: transparent;
-    border: none;
-    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
   }
 
   .nav-btn:hover {
     color: #ff0066;
-    text-shadow: 0 0 8px #ff0066;
+    text-shadow: 0 0 10px #ff0066;
   }
 }
