@@ -1326,7 +1326,7 @@ footer {
   display: none;
 }
 
-/* MOBILE ONLY */
+/* Mobile Only */
 @media (max-width: 768px) {
   .site-header {
     display: none;
@@ -1335,26 +1335,30 @@ footer {
   .mobile-nav-buttons {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 25px;
+    align-items: center;
     position: fixed;
-    top: 20px;
+    top: 15px;
     left: 50%;
     transform: translateX(-50%);
     background: rgba(15, 15, 15, 0.95);
-    padding: 0.8rem 2rem;
+    padding: 0.8rem 1.5rem;
     border-radius: 50px;
-    box-shadow: 0 0 12px rgba(255, 0, 100, 0.4); 
-    backdrop-filter: blur(8px);
+    box-shadow: 0 0 12px rgba(255, 0, 100, 0.4);
+    backdrop-filter: blur(10px);
     z-index: 10000;
+    flex-wrap: nowrap;
+    gap: 25px;
+    max-width: 90%;
+    overflow-x: auto;
   }
 
   .nav-btn {
     color: white;
-    background: transparent;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
     text-decoration: none;
+    background: transparent;
+    white-space: nowrap;
     transition: color 0.3s ease, text-shadow 0.3s ease;
   }
 
