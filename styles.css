@@ -1322,6 +1322,12 @@ footer {
   color: #777;
 }
 
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+}
+
 .mobile-nav-buttons {
   display: none;
 }
@@ -1329,12 +1335,12 @@ footer {
 /* MOBILE ONLY */
 @media (max-width: 768px) {
   .mobile-nav-buttons {
-    position: fixed;
-    top: 70px;
-    right: 15px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    position: fixed;
+    top: 70px;
+    right: 15px;
     z-index: 10000;
   }
 
@@ -1355,4 +1361,5 @@ footer {
     background: rgba(255, 0, 100, 0.8);
   }
 }
+
 
