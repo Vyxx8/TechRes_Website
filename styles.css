@@ -1326,7 +1326,7 @@ footer {
   display: none;
 }
 
-/* MOBILE ONLY */
+/* Mobile Only */
 @media (max-width: 768px) {
   .site-header {
     display: none;
@@ -1335,24 +1335,26 @@ footer {
   .mobile-nav-buttons {
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    justify-content: center;
+    gap: 20px;
     position: fixed;
-    top: 10px;
+    top: 15px;
     left: 50%;
-    transform: translateX(-50%); 
-    background: rgba(0, 0, 0, 0.8);
-    padding: 0.5rem 1rem;
-    border-radius: 30px;
+    transform: translateX(-50%);
+    background: rgba(10, 10, 10, 0.85);
+    padding: 0.7rem 1.5rem;
+    border-radius: 40px;
     z-index: 10000;
-    backdrop-filter: blur(6px);
-    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 15px rgba(255, 0, 100, 0.4);
   }
 
   .nav-btn {
     color: white;
     background: transparent;
     border: none;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    font-weight: bold;
     text-decoration: none;
     text-align: center;
     transition: color 0.3s ease;
@@ -1360,5 +1362,6 @@ footer {
 
   .nav-btn:hover {
     color: #ff0066;
+    text-shadow: 0 0 8px #ff0066;
   }
 }
