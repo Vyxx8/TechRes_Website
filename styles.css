@@ -1336,26 +1336,26 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 25px;
     position: fixed;
-    top: 15px;
+    top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(15, 15, 15, 0.95);
-    padding: 0.8rem 1.5rem;
-    border-radius: 50px;
-    box-shadow: 0 0 12px rgba(255, 0, 100, 0.4);
-    backdrop-filter: blur(10px);
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    backdrop-filter: none;
     z-index: 10000;
     flex-wrap: nowrap;
-    gap: 25px;
-    max-width: 90%;
+    max-width: 95%;
     overflow-x: auto;
   }
 
   .nav-btn {
     color: white;
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 1.1rem;
+    font-weight: bold;
     text-decoration: none;
     background: transparent;
     white-space: nowrap;
@@ -1364,6 +1364,6 @@ footer {
 
   .nav-btn:hover {
     color: #ff0066;
-    text-shadow: 0 0 10px #ff0066;
+    text-shadow: 0 0 8px #ff0066;
   }
 }
