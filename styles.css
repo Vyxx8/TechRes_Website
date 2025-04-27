@@ -1334,30 +1334,29 @@ footer {
 
   .mobile-nav-buttons {
     display: flex;
-    flex-direction: row;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 20px;
     position: fixed;
     top: 15px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(10, 10, 10, 0.85);
-    padding: 0.7rem 1.5rem;
-    border-radius: 40px;
+    background: rgba(10, 10, 10, 0.9);
+    padding: 0.7rem 1.2rem;
+    border-radius: 50px;
+    box-shadow: 0 0 10px rgba(255, 0, 100, 0.4);
+    backdrop-filter: blur(10px);
     z-index: 10000;
-    backdrop-filter: blur(8px);
-    box-shadow: 0 0 15px rgba(255, 0, 100, 0.4);
   }
 
   .nav-btn {
     color: white;
-    background: transparent;
-    border: none;
+    text-decoration: none;
     font-size: 1rem;
     font-weight: bold;
-    text-decoration: none;
-    text-align: center;
-    transition: color 0.3s ease;
+    background: transparent;
+    border: none;
+    transition: all 0.3s ease;
   }
 
   .nav-btn:hover {
