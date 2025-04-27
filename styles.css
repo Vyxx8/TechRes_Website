@@ -1336,7 +1336,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 25px;
+    gap: 15px;
     position: fixed;
     top: 20px;
     left: 50%;
@@ -1354,7 +1354,7 @@ footer {
 
   .nav-btn {
     color: white;
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     font-weight: bold;
     text-decoration: none;
     background: transparent;
