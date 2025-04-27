@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
         year: 'numeric', month: 'long', day: 'numeric'
       }),
       notes: document.getElementById("notes").value || "N/A",
-      price: document.getElementById("priceEstimate").textContent.replace("$", "")
     };
 
     console.log("Sending with params:", templateParams);
@@ -32,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => toast.classList.remove("show"), 3000);
 
     form.reset();
-    document.getElementById("priceEstimate").textContent = "$0";
   }, function (error) {
     const errorToast = document.getElementById("error-toast");
     errorToast.classList.add("show");
@@ -43,20 +41,13 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-function generateOrderNumber() {
-  const now = new Date();
-  const datePart = now.toISOString().split("T")[0].replace(/-/g, '');
-  const randomPart = Math.floor(100 + Math.random() * 900);
-  return `TR-${datePart}-${randomPart}`;
-}
-
 document.addEventListener("DOMContentLoaded", () => {
   const glow = document.getElementById("cursor-glow");
 
-  let mouseX = 0;
-  let mouseY = 0;
-  let glowX = 0;
-  let glowY = 0;
+  var mouseX = 0;
+  var mouseY = 0;
+  var glowX = 0;
+  var glowY = 0;
 
   document.addEventListener("mousemove", (e) => {
     mouseX = e.clientX;
@@ -134,17 +125,3 @@ const templateParams = {
 };
 
 const header = document.querySelector('.site-header');
-
-window.addEventListener('scroll', () => {
-  if (window.scrollY === 0) {
-    header.style.top = '0';
-  } else {
-    header.style.top = '-100px';
-  }
-});
-
-if (window.scrollY === 0) {
-  header.style.top = '0';
-} else {
-  header.style.top = '-100px';
-}

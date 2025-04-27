@@ -9,7 +9,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script type="text/javascript">
   (function() {
-    emailjs.init("L41mscJDBt8AusYyY"); // Replace with your correct public key
+    emailjs.init("L41mscJDBt8AusYyY");
   })();
 </script>
 
@@ -30,7 +30,7 @@
       <li><a href="gallery.html">Gallery</a></li>
       <li><a href="appointment.html">Appointment</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li><a href="how-it-works.html" class="active">How It Works</a></li>
+      <li><a href="how-it-works.html" >How It Works</a></li>
     </ul>
   </nav>
 
@@ -115,12 +115,6 @@
       <textarea id="notes" name="notes" rows="4" placeholder="Describe the issue, request specifics, etc."></textarea>
     </div>
   
-    <div class="estimator-group">
-      <label for="priceEstimate">Estimated Price</label>
-      <div id="priceEstimate" class="price-box">$0</div>
-      <p class="price-note">*Estimate only. Final price depends on your device, parts, and issue severity.</p>
-    </div>
-  
     <button type="submit" class="submit-btn">Book Now</button>
   </form>
 
@@ -130,13 +124,12 @@
 
 </main>
 
-<!-- Toast Notifications -->
 <div id="success-toast" class="toast success-toast">✅ Appointment confirmed! We'll contact you soon.</div>
 <div id="error-toast" class="toast error-toast">❌ Failed to send. Please try again.</div>
 
 <script>
   
-  const servicePrices = {
+  const servicechoice = {
     phone: {
       "Screen Protector Replacement": 15,
       "Battery Replacement": 35,
@@ -190,33 +183,17 @@
   const addIssueBtn = document.getElementById("addIssueBtn");
   const extraFields = document.getElementById("extraFields");
   const issueSummary = document.getElementById("issueSummary");
-  const priceBox = document.getElementById("priceEstimate");
   
   function updateIssueOptions(select, service) {
     select.innerHTML = `<option value="">-- Select an issue --</option>`;
-    if (servicePrices[service]) {
-      Object.keys(servicePrices[service]).forEach(issue => {
+    if (servicechoice[service]) {
+      Object.keys(servicechoice[service]).forEach(issue => {
         const option = document.createElement("option");
         option.value = issue;
         option.textContent = issue;
         select.appendChild(option);
       });
     }
-  }
-  
-  function updatePrice() {
-    let total = 0;
-    const s1 = serviceSelect.value;
-    const i1 = issueSelect.value;
-    const s2 = extraService.value;
-    const i2 = extraIssue.value;
-  
-    if (servicePrices[s1]?.[i1]) total += servicePrices[s1][i1];
-    if (servicePrices[s2]?.[i2]) total += servicePrices[s2][i2];
-  
-    priceBox.textContent = `$${total}`;
-    priceBox.classList.add("animate");
-    setTimeout(() => priceBox.classList.remove("animate"), 300);
   }
   
   serviceSelect.addEventListener("change", () => {
@@ -227,7 +204,6 @@
     issueSummary.innerHTML = "";
     issueSummary.style.display = "none";
     extraFields.style.display = "none";
-    updatePrice();
   });
   
   issueSelect.addEventListener("change", () => {
@@ -238,7 +214,6 @@
       extraFields.style.display = "none";
       issueSummary.style.display = "none";
     }
-    updatePrice();
   });
   
   addIssueBtn.addEventListener("click", () => {
@@ -250,10 +225,7 @@
   
   extraService.addEventListener("change", () => {
     updateIssueOptions(extraIssue, extraService.value);
-    updatePrice();
   });
-  
-  extraIssue.addEventListener("change", updatePrice);
   </script>    
 
 <footer class="footer">

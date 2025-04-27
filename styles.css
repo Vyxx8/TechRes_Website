@@ -1233,7 +1233,7 @@ nav a:hover {
 }
 
 .gallery-section {
-  padding: 4rem 2rem;
+  padding: 4rem 3rem;
   text-align: center;
 }
 
@@ -1326,7 +1326,7 @@ footer {
   display: none;
 }
 
-/* MOBILE ONLY */
+/* Mobile Only */
 @media (max-width: 768px) {
   .site-header {
     display: none;
@@ -1341,11 +1341,11 @@ footer {
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background: linear-gradient(90deg, rgba(255, 0, 100, 0.2), rgba(128, 0, 255, 0.2));
-    padding: 0.5rem 1rem;
-    border-radius: 30px;
-    box-shadow: 0 0 12px rgba(255, 0, 100, 0.4);
-    backdrop-filter: blur(8px);
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    backdrop-filter: none;
     z-index: 10000;
     flex-wrap: nowrap;
     max-width: 95%;
@@ -1355,7 +1355,7 @@ footer {
   .nav-btn {
     color: white;
     font-size: 0.95rem;
-    font-weight: 600;
+    font-weight: bold;
     text-decoration: none;
     background: transparent;
     white-space: nowrap;
@@ -1366,4 +1366,12 @@ footer {
     color: #ff0066;
     text-shadow: 0 0 8px #ff0066;
   }
+}
+
+.price-note {
+  font-size: 0.85rem;
+  color: #bbbbbb;
+  text-align: center;
+  margin-top: 1rem;
+  font-style: italic;
 }
