@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TechRes | Book an Appointment</title>
+  <link rel="stylesheet" href="../styles.css" />
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+  (function() {
+    emailjs.init("L41mscJDBt8AusYyY");
+  })();
+</script>
+
+
+<script src="../scripts/main.js"></script>
+ 
+</head>
+<header class="site-header">
+    <div class="logo">
+      <img src="../assets/logo.png" alt="TechRes Logo" />
+    </div>
+  
+    <h1 class="site-title">TechRes</h1>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="appointment.html">Appointment</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="how-it-works.html" >How It Works</a></li>
+    </ul>
+  </nav>
+
+</header>
+
+<div class="mobile-nav-buttons">
+  <a href="../index.html" class="nav-btn">Home</a>
+  <a href="services.html" class="nav-btn">Services</a>
+  <a href="gallery.html" class="nav-btn">Gallery</a>
+  <a href="contact.html" class="nav-btn">Contact</a>
+  <a href="appointment.html" class="nav-btn">Appointment</a>
+</div>
+
+<main class="appointment-section">
+  <h2 class="section-title">Book an Appointment</h2>
+
+  <form class="appointment-form" id="appointmentForm">
+    <div class="form-group animated-input">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" required placeholder="Enter your name" />
+    </div>
+  
+    <div class="form-group animated-input">
+      <label for="service">What do you need help with?</label>
+      <select id="service" name="service" required>
+        <option value="">-- Choose a service --</option>
+        <option value="phone">📱 Phone Repair</option>
+        <option value="pc-build">🖥️ Custom PC Build</option>
+        <option value="video-edit">🎬 Video Editing</option>
+        <option value="controller">🎮 Controller Fix</option>
+        <option value="laptop">💻 Laptop Repair</option>
+        <option value="diagnostic">🧠 PC Diagnostics</option>
+      </select>
+    </div>
+  
+    <div class="form-group animated-input" id="issue-group" style="display: none;">
+      <label for="issue">Main Issue</label>
+      <select id="issue" name="issue">
+        <option value="">-- Select an issue --</option>
+      </select>
+    </div>
+  
+    <div class="issue-summary-cards" id="issueSummary" style="display: none;"></div>
+  
+    <button type="button" id="addIssueBtn" class="add-issue-btn" style="display:none;">➕ Have another issue?</button>
+  
+    <div id="extraFields" class="form-group animated-input" style="display: none;">
+      <label for="extraService">What do you need help with? (Extra)</label>
+      <select id="extraService" name="extraService">
+        <option value="">-- Choose a service --</option>
+        <option value="phone">📱 Phone Repair</option>
+        <option value="pc-build">🖥️ Custom PC Build</option>
+        <option value="video-edit">🎬 Video Editing</option>
+        <option value="controller">🎮 Controller Fix</option>
+        <option value="laptop">💻 Laptop Repair</option>
+        <option value="diagnostic">🧠 PC Diagnostics</option>
+      </select>
+  
+      <label for="extraIssue">Additional Issue</label>
+      <select id="extraIssue" name="extraIssue">
+        <option value="">-- Select another issue --</option>
+      </select>
+    </div>
+  
+    <div class="form-group animated-input">
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required />
+    </div>
+
+    <div class="form-group animated-input">
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" required />
+    </div>    
+  
+    <div class="form-group animated-input">
+      <label for="date">Preferred Date</label>
+      <input type="date" id="date" name="date" required />
+    </div>
+  
+    <div class="form-group animated-input">
+      <label for="notes">Anything you'd like us to know?</label>
+      <textarea id="notes" name="notes" rows="4" placeholder="Describe the issue, request specifics, etc."></textarea>
+    </div>
+  
+    <button type="submit" class="submit-btn">Book Now</button>
+  </form>
+
+  <p style="text-align:center; margin-top: 2rem;">
+    <a href="how-it-works.html" class="cta-button small">📘 See How It Works</a>
+  </p> 
+
+</main>
+
+<div id="success-toast" class="toast success-toast">✅ Appointment confirmed! We'll contact you soon.</div>
+<div id="error-toast" class="toast error-toast">❌ Failed to send. Please try again.</div>
+
+<script>
+  
+  const servicechoice = {
+    phone: {
+      "Screen Protector Replacement": 15,
+      "Battery Replacement": 35,
+      "Charging Port Fix": 30,
+      "Back Glass Replacement": 40,
+      "Speakers / Mic Fix": 20,
+      "Frozen System Reset": 40
+    },
+    laptop: {
+      "Speed Optimization": 40,
+      "Overheating Fix": 55,
+      "Keyboard Repair": 25,
+      "Keyboard Replacement": 80,
+      "Battery Replacement": 90,
+      "No Display Diagnostics": 50,
+      "Wi-Fi / Network Fix": 30
+    },
+    controller: {
+      "Stick Drift Fix": 35,
+      "Button Cleaning / Fix": 20,
+      "Battery Replacement": 35,
+      "Trigger Replacement": 25,
+      "Connectivity Issues": 15
+    },
+    "pc-build": {
+      "Budget Build": 75,
+      "Intermediate Build": 135,
+      "High-End Build": 200
+    },
+    "video-edit": {
+      "Simple Edit (<5 min)": 15,
+      "Social Media Edit": 35,
+      "YouTube Edit (5–15 min)": 70,
+      "Advanced Effects": 100,
+      "Music Video / Montage": 120
+    },
+    diagnostic: {
+      "Basic System Check": 15,
+      "Full Diagnostic": 25,
+      "Malware / Virus Cleanup": 35,
+      "Performance Benchmark": 45,
+      "Build Troubleshooting": 60
+    }
+  };
+  
+  const serviceSelect = document.getElementById("service");
+  const issueSelect = document.getElementById("issue");
+  const extraService = document.getElementById("extraService");
+  const extraIssue = document.getElementById("extraIssue");
+  const issueGroup = document.getElementById("issue-group");
+  const addIssueBtn = document.getElementById("addIssueBtn");
+  const extraFields = document.getElementById("extraFields");
+  const issueSummary = document.getElementById("issueSummary");
+  
+  function updateIssueOptions(select, service) {
+    select.innerHTML = `<option value="">-- Select an issue --</option>`;
+    if (servicechoice[service]) {
+      Object.keys(servicechoice[service]).forEach(issue => {
+        const option = document.createElement("option");
+        option.value = issue;
+        option.textContent = issue;
+        select.appendChild(option);
+      });
+    }
+  }
+  
+  serviceSelect.addEventListener("change", () => {
+    const selected = serviceSelect.value;
+    updateIssueOptions(issueSelect, selected);
+    issueGroup.style.display = selected ? "block" : "none";
+    addIssueBtn.style.display = "none";
+    issueSummary.innerHTML = "";
+    issueSummary.style.display = "none";
+    extraFields.style.display = "none";
+  });
+  
+  issueSelect.addEventListener("change", () => {
+    if (issueSelect.value) {
+      addIssueBtn.style.display = "inline-block";
+    } else {
+      addIssueBtn.style.display = "none";
+      extraFields.style.display = "none";
+      issueSummary.style.display = "none";
+    }
+  });
+  
+  addIssueBtn.addEventListener("click", () => {
+    issueSummary.innerHTML = `<div class="issue-card">${issueSelect.value}</div>`;
+    issueSummary.style.display = "block";
+    extraFields.style.display = "block";
+    addIssueBtn.style.display = "none";
+  });
+  
+  extraService.addEventListener("change", () => {
+    updateIssueOptions(extraIssue, extraService.value);
+  });
+  </script>    
+
+<footer class="footer">
+  <p>&copy; 2025 TechRes. All rights reserved.</p>
+</footer>
+<script type="module" src="../scripts/main.js"></script>
+</body>
+</html>
