@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="7;url=../index.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appointment Confirmed</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(145deg, #0a0a0a, #1a001a);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .confirmation-box {
+      background-color: #1a001a;
+      border: 2px solid #ff0033;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(255, 0, 60, 0.4);
+      text-align: center;
+      max-width: 400px;
+    }
+
+    h1 {
+      color: #ff0033;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #e0d3ff;
+    }
+
+    .countdown {
+      font-weight: bold;
+      color: #c056ff;
+      margin: 15px 0;
+    }
+
+    .redirect-btn {
+      background-color: #ff0033;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .redirect-btn:hover {
+      background-color: #e6002a;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="confirmation-box">
+    <h1>✅ Appointment Confirmed</h1>
+    <p>Thanks for booking with <strong>TechRes</strong>. We’ll contact you shortly.</p>
+    <p class="countdown">Redirecting in <span id="seconds">7</span> seconds...</p>
+    <button class="redirect-btn" onclick="window.location.href='index.html'">Go Now</button>
+  </div>
+
+  <script>
+    let seconds = 7;
+    const countdownEl = document.getElementById('seconds');
+    const countdown = setInterval(() => {
+      seconds--;
+      countdownEl.textContent = seconds;
+      if (seconds <= 0) clearInterval(countdown);
+    }, 1000);
+  </script>
+
+</body>
+</html>
