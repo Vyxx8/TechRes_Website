@@ -51,7 +51,7 @@
         <div class="gallery-item fade-in">
           <img src="../images/Redthemed_PCBuild.jpeg" alt="Red-Themed PC Build" />
           <div class="caption">
-            <h3>Red-Themed Build</h3>
+            <h3>Red Themed Build</h3>
             <p>Built for <strong>Phoenix</strong> — High-performance setup with red lighting and optimized for streaming & gaming.</p>
           </div>
         </div>
@@ -59,24 +59,36 @@
         <div class="gallery-item fade-in">
           <img src="../images/PC_Build2.jpeg" alt="Anime Dual Monitor Setup" />
           <div class="caption">
-            <h3>Anime-Themed Build</h3>
-            <p>Custom build for <strong>Nina K.</strong> — Dual-display setup with themed RGB case and soft purple backlighting.</p>
+            <h3>Purple Themed Build</h3>
+            <p>Custom build for <strong>Jake</strong> — Dual-display setup with themed RGB case and soft purple backlighting.</p>
           </div>
         </div>
   
         <div class="gallery-item fade-in">
           <img src="../images/PC_Stress1.jpeg" alt="PC Stress Test" />
           <div class="caption">
-            <h3>Stress Test in Progress</h3>
-            <p>Performance boost and driver optimization in progress for <strong>Lucas T.</strong> using MSI Afterburner and other tools.</p>
+            <h3>Stress Test Diagnostics</h3>
+            <p>Performance boost and driver optimization in progress for <strong>Logan</strong> using MSI Afterburner and other tools.</p>
           </div>
         </div>
   
         <div class="gallery-item fade-in">
-          <img src="../images/PC_Build3.jpeg" alt="Fresh Build Setup" />
+           <div class="slideshow-container">
+            <div class="slide fade">
+          <img src="../images/CDTRAY1.jpeg" alt="Fresh Build Setup" />
+          </div>
+          <div class="slide fade">
+          <img src="../images/CDTRAY2.jpeg" alt="Fresh Build Setup" />
+          </div>
+          <div class="slide fade">
+          <img src="../images/CDTRAYCOMPLETE.JPEG" alt="Fresh Build Setup" />
+          </div>
+          </div>
+              <a class="prev" onclick="plusSlides(-1, 0)">❮</a>
+              <a class="next" onclick="plusSlides(1, 0)">❯</a>
           <div class="caption">
-            <h3>Initial Setup</h3>
-            <p>Brand new PC being initialized and set up for <strong>Emily V.</strong> with updated Windows installation.</p>
+            <h3>CD Disk Tray Repair</h3>
+            <p>CD Disk tray from <strong>Evan</strong> got jammed and wasn't running well, After some diagnostics and disassembling I got it fixed and working!</p>
           </div>
         </div>
   
@@ -98,6 +110,44 @@
     <footer>
       <p>&copy; 2025 TechRes. All rights reserved.</p>
     </footer>
+
+    <script>
+  let slideIndexes = [];
+
+  function showSlides(n, slideshowIndex) {
+    const slideshows = document.querySelectorAll(".slideshow-container");
+    const slides = slideshows[slideshowIndex].querySelectorAll(".slide");
+
+    if (!slideIndexes[slideshowIndex] && slideIndexes[slideshowIndex] !== 0) {
+      slideIndexes[slideshowIndex] = 0;
+    }
+
+    if (n >= slides.length) {
+      slideIndexes[slideshowIndex] = 0;
+    } else if (n < 0) {
+      slideIndexes[slideshowIndex] = slides.length - 1;
+    } else {
+      slideIndexes[slideshowIndex] = n;
+    }
+
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+
+    slides[slideIndexes[slideshowIndex]].style.display = "block";
+  }
+
+  function plusSlides(n, slideshowIndex) {
+    showSlides(slideIndexes[slideshowIndex] + n, slideshowIndex);
+  }
+
+  window.onload = () => {
+    const slideshows = document.querySelectorAll(".slideshow-container");
+    slideshows.forEach((_, i) => {
+      showSlides(0, i);
+    });
+  };
+</script>
 
   </body>
 </html>
